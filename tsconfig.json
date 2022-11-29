@@ -4,11 +4,10 @@
         "skipLibCheck": true,
         "esModuleInterop": true,
         "declaration": true,
+        "declarationDir": "dist/types",
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "lib": [
-            "ESNext"
-        ],
+        "lib": ["ESNext"],
         "module": "commonjs",
         "newLine": "LF",
         "noFallthroughCasesInSwitch": true,
@@ -17,15 +16,8 @@
         "noImplicitThis": false,
         "noUnusedParameters": false,
         "noUnusedLocals": true,
-        "outDir": "dist",
         "sourceMap": true,
         "strictNullChecks": false,
-        "target": "es6"
-    },
-    "include": [
-        "src/**/*.ts"
-    ],
-    "exclude": [
-        "node_modules/**/*"
-    ]
+        "target": "ES6"
+    }
 }

@@ -1,5 +1,5 @@
 import { DataSource, DataSourceOptions } from 'typeorm';
-import { loadScriptFile, loadScriptFileExport } from 'locter';
+import { loadScriptFileExportSync, loadScriptFileSync } from 'locter';
 import { SeederConstructor, SeederOptions } from './type';
 import { resolveFilePaths, resolveFilePatterns, setDefaultSeederOptions } from './utils';
 import { modifyDataSourceOptionForRuntimeEnvironment, setDataSource } from '../data-source';
@@ -32,7 +32,7 @@ async function prepareSeeder(
             factoryFiles = resolveFilePaths(factoryFiles);
 
             for (let i = 0; i < factoryFiles.length; i++) {
-                await loadScriptFile(factoryFiles[i]);
+                loadScriptFileSync(factoryFiles[i]);
             }
         }
 
@@ -68,7 +68,7 @@ async function prepareSeeder(
             seedFiles = resolveFilePaths(seedFiles);
 
             for (let i = 0; i < seedFiles.length; i++) {
-                const fileExport = await loadScriptFileExport(seedFiles[i]);
+                const fileExport = loadScriptFileExportSync(seedFiles[i]);
                 if (fileExport) {
                     const item = fileExport.value as SeederConstructor;
 

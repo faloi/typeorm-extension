@@ -1,4 +1,6 @@
-import { loadScriptFile, locateFile, removeFileNameExtension } from 'locter';
+import {
+    loadScriptFileSync, locateFile, removeFileNameExtension,
+} from 'locter';
 import path from 'path';
 import { DataSource, InstanceChecker } from 'typeorm';
 import { DataSourceFindOptions } from './type';
@@ -79,7 +81,7 @@ export async function findDataSource(
         });
 
         if (info) {
-            const fileExports = await loadScriptFile(info);
+            const fileExports = loadScriptFileSync(info);
             if (InstanceChecker.isDataSource(fileExports)) {
                 return fileExports;
             }
